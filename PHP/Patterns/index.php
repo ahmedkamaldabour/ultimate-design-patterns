@@ -1,12 +1,12 @@
 <?php
 
- 
+
 use DesignPatterns\Behavioral\Observer\Exercise\Models\Blog;
 use DesignPatterns\Behavioral\Observer\Exercise\Models\User;
 use DesignPatterns\Behavioral\Observer\Exercise\Enums\EventType;
 use DesignPatterns\Behavioral\Observer\Exercise\Models\NewsLetter;
 use DesignPatterns\Behavioral\Observer\Exercise\NewsLetterNotification;
- 
+
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
@@ -26,8 +26,16 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'a
 
 // newsletter example
 // Get the current date and time
-$publishedAt = new DateTime();
-$newsletter = new NewsLetterNotification();
-$newsletter->subscribe(EventType::BLOG,new User('Ahmed'));
-$newsletter->addBlog(new Blog('test blog tilte','test blog content',$publishedAt));
-$newsletter->addNewsLetter(new NewsLetter('test newsletter tilte','test newsletter content',$publishedAt));
+//$publishedAt = new DateTime();
+//$newsletter = new NewsLetterNotification();
+//$newsletter->subscribe(EventType::BLOG,new User('Ahmed'));
+//$newsletter->addBlog(new Blog('test blog tilte','test blog content',$publishedAt));
+//$newsletter->addNewsLetter(new NewsLetter('test newsletter tilte','test newsletter content',$publishedAt));
+
+
+// factory method example
+//$processor = new DesignPatterns\Creational\FactoryMethod\PaymentProcessor();
+//echo $processor->processPayment('VISA');
+//echo PHP_EOL;
+//echo $processor->processPayment('MASTER_CARD');
+
