@@ -2,16 +2,14 @@
 
 namespace DesignPatterns\Creational\FactoryMethod;
 
-class PaymentMethodFactory
+abstract class PaymentMethodFactory
 {
-    public function createPaymentMethod(string $cardType): PaymentMethod
+    abstract public function createPaymentMethod(): PaymentMethod;
+
+    public function process(): mixed
     {
-        return match (strtoupper($cardType)) {
-            'VISA' => new Visa(),
-            'MASTER_CARD' => new MasterCard(),
-            'AMERICAN_EXPRESS' => new AmericanExpress(),
-            default => throw new \InvalidArgumentException("Unknown card type: {$cardType}")
-        };
+        $paymentMethod = $this->createPaymentMethod();
+        return ' => ' . $paymentMethod->authorize() . ' => ' . $paymentMethod->moneyTransfer();
     }
 }
 

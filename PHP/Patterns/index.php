@@ -1,6 +1,7 @@
 <?php
 
 
+use DesignPatterns\Creational\FactoryMethod\PaymentMethodSelector;
 use DesignPatterns\Behavioral\Observer\Exercise\Models\Blog;
 use DesignPatterns\Behavioral\Observer\Exercise\Models\User;
 use DesignPatterns\Behavioral\Observer\Exercise\Enums\EventType;
@@ -34,8 +35,13 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'a
 
 
 // factory method example
-//$processor = new DesignPatterns\Creational\FactoryMethod\PaymentProcessor();
-//echo $processor->processPayment('VISA');
-//echo PHP_EOL;
-//echo $processor->processPayment('MASTER_CARD');
+$paymentMethod = PaymentMethodSelector::getFactory('visa');
+if ($paymentMethod) {
+    $res = $paymentMethod->process();;
+} else {
+    $res = 'Payment method not found';
+}
 
+echo PHP_EOL;
+echo $res;
+echo PHP_EOL;
